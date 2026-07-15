@@ -1,7 +1,7 @@
 //select dom elements
-const input = document.getElementById('to-do input')
-const addbtn=document.getElementById('add-btn')
-const list= document.getElementById('to-do list')
+const input = document.getElementById('todo-input');
+const addbtn=document.getElementById('add-btn');
+const list = document.getElementById('todo-list');
 
 const saved= localStorage.getItem('todos');
 const todos= saved? JSON.parse(saved): [];
@@ -59,7 +59,7 @@ function createToDoNode(todo,index){
 
 //render the todos list from array
 function render(){
-    list.innerHTML= ' ';
+    list.innerHTML= '';
     //recreate each item
     todos.forEach((todo,index) => {
         const node= createToDoNode(todo,index)
@@ -75,7 +75,7 @@ function addtodo(){
         return
     }
     todos.push({text, completed:false});
-    input.value=" ";
+    input.value="";
     render()
     saveTodos()
 }
